@@ -25,8 +25,14 @@
 </div>
 
 <div class="content" role="main">
-  <app-login-signup></app-login-signup>
-  <app-teacher-dashboard></app-teacher-dashboard>
+  <h1>Welcome to study system!</h1>
+  <nav>
+    <a routerLink="/" routerLinkActive="active">Home | </a>
+    <a routerLink="/login-signup" routerLinkActive="active">Login-Signup | </a>
+    <a routerLink="/teacher" routerLinkActive="active">Teacher</a>
+  </nav>
+
+  <router-outlet></router-outlet>
 </div>
 
 

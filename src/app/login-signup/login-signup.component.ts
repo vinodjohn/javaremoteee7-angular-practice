@@ -42,6 +42,7 @@ export class LoginSignupComponent implements OnInit {
     login(userForm: NgForm) {
       this.message = this.validateLogin() ? 'Login successful!' : 'Invalid email or password!';
       this.showMessage = true;
+      userForm.reset();
     }
 
     validateLogin() {

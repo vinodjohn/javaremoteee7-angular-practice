@@ -15,6 +15,8 @@ export class LoginSignupComponent implements OnInit {
     password: String = '';
     message: String = '';
     showMessage: boolean = false;
+    loginEmail: String = '';
+    loginPassword: String = '';
 
     constructor() {
     }
@@ -25,12 +27,12 @@ export class LoginSignupComponent implements OnInit {
     signUp(userForm: NgForm) {
         if (this.validateSignup()) {
             this.users.push(new User(this.firstName, this.lastName, this.email, this.password));
-            userForm.reset();
-            this.message = 'Signup successful';
+            this.message = 'Signup successful!';
         } else {
-          this.message = 'Invalid email or password!';
+            this.message = 'Signup unsuccessful! Invalid email or password!';
         }
 
+        userForm.reset();
         this.showMessage = true;
     }
 
@@ -40,20 +42,20 @@ export class LoginSignupComponent implements OnInit {
     }
 
     login(userForm: NgForm) {
-      this.message = this.validateLogin() ? 'Login successful!' : 'Invalid email or password!';
-      this.showMessage = true;
-      userForm.reset();
+        this.message = this.validateLogin() ? 'Login successful!' : 'Login unsuccessful! Invalid email or password!';
+        this.showMessage = true;
+        userForm.reset();
     }
 
     validateLogin() {
-      let result = false;
+        let result = false;
 
-      this.users.forEach(value => {
-        if (value.email === this.email && value.password === this.password) {
-          result = true;
-        }
-      });
+        this.users.forEach(value => {
+            if (value.email === this.loginEmail && value.password === this.loginPassword) {
+                result = true;
+            }
+        });
 
-      return result;
+        return result;
     }
 }

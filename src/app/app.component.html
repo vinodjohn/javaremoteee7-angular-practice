@@ -1,8 +1,23 @@
 <p>
   <mat-toolbar color="warn">
-    <button mat-icon-button class="example-icon">
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon">
       <mat-icon>menu</mat-icon>
     </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>home</mat-icon>
+        <span><a routerLink="/" routerLinkActive="active">Home</a></span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span><a routerLink="/login-signup" routerLinkActive="active">Login-Signup</a></span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>face</mat-icon>
+        <span><a routerLink="/teacher" routerLinkActive="active">Teacher</a></span>
+      </button>
+    </mat-menu>
+
     <span>Study App</span>
     <span class="example-spacer"></span>
     <button mat-icon-button class="example-icon favorite-icon">
@@ -16,12 +31,6 @@
 
 <div class="content" role="main">
   <h1>Welcome to study system!</h1>
-  <nav>
-    <a routerLink="/" routerLinkActive="active">Home | </a>
-    <a routerLink="/login-signup" routerLinkActive="active">Login-Signup | </a>
-    <a routerLink="/teacher" routerLinkActive="active">Teacher</a>
-  </nav>
-
   <router-outlet></router-outlet>
 </div>
 
